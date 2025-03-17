@@ -7,34 +7,32 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-// Pencarian
 Route::get('/search', function () {
     return 'Hasil Pencarian';
 });
-
-// Produk
+Route::get('/wishlits', function () {
+    return 'wishlist anda';
+});
 Route::get('/products', function () {
     return 'Daftar Produk';
 });
 
-Route::get('/product/detail', function () {
+Route::get('mitraname/product', function () {
     return 'Detail Produk';
 });
 
-Route::get('/product/reviews', function () {
+Route::get('mitraname/product/reviews', function () {
     return 'Ulasan Produk';
 });
 
-// Kategori dan Filter
-Route::get('/categories', function () {
+Route::get('/p/products', function () {
     return 'Daftar Kategori Produk';
 });
 
-Route::get('/filter', function () {
+Route::get('/p/product/filter', function () {
     return 'Hasil Filter Produk';
 });
 
-// Keranjang Belanja dan Checkout
 Route::get('/cart', function () {
     return 'Keranjang Belanja';
 });
@@ -51,69 +49,52 @@ Route::get('/checkout/process', function () {
     return 'Proses Checkout';
 });
 
-// Pengguna (Autentikasi dan Profil)
 Route::get('/login', function () {
     return 'Halaman Login';
 });
-
-Route::get('/login/process', function () {
-    return 'Proses Login';
+Route::get('/order-list', function () {
+    return 'Halaman List order';
 });
 
 Route::get('/register', function () {
     return 'Halaman Registrasi';
 });
 
-Route::get('/register/process', function () {
-    return 'Proses Registrasi';
-});
-
-Route::get('/profile', function () {
+Route::get('/user', function () {
     return 'Profil Pengguna';
 });
 
-Route::get('/profile/orders', function () {
+Route::get('/user/settings', function () {
     return 'Daftar Pesanan';
 });
 
-Route::get('/profile/order/detail', function () {
-    return 'Detail Pesanan';
-});
-
-// Penjual
-Route::get('/sellers', function () {
+Route::get('/mitra', function () {
     return 'Daftar Penjual';
 });
 
-Route::get('/seller/products', function () {
+Route::get('/mitra/products', function () {
     return 'Produk Penjual';
 });
 
-// Transaksi dan Pembayaran
 Route::get('/payment', function () {
     return 'Halaman Pembayaran';
 });
 
-Route::get('/payment/process', function () {
-    return 'Proses Pembayaran';
-});
-
-// Ulasan dan Rating
-Route::get('/reviews/submit', function () {
+Route::get('/mitra/products/review/submit', function () {
     return 'Ulasan untuk Produk';
 });
 
-// Lainnya
 Route::get('/promo', function () {
     return 'Halaman Promo';
 });
-
-Route::get('/contact', function () {
-    return 'Halaman Kontak';
-});
-
 Route::get('/about', function () {
     return 'Halaman Tentang Kami';
+});
+Route::get('/reset-password', function () {
+    return 'Halaman Reset Password';
+});
+Route::get('/help', function () {
+    return 'Pusat Bantuan';
 });
 
 Route::view('dashboard', 'dashboard')
