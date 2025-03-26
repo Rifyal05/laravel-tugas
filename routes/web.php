@@ -17,8 +17,8 @@ Route::get('/products', function () {
     return 'Daftar Produk';
 });
 
-Route::get('mitraname/product', function () {
-    return 'Detail Produk';
+Route::get('mitraname/product/(slug)', function ($slug) {
+    return 'Detail Produk'.$slug;
 });
 
 Route::get('mitraname/product/reviews', function () {
@@ -96,6 +96,29 @@ Route::get('/reset-password', function () {
 Route::get('/help', function () {
     return 'Pusat Bantuan';
 });
+
+Route::get('/', function(){
+    return view('web.homepage');
+   });
+   
+Route::get('products', function(){
+    return view('web.product');
+   });
+Route::get('product/{slug}', function($slug){
+    return "halaman single product - ".$slug;
+   });
+Route::get('categories', function(){
+    return view('web.categories');
+   });
+Route::get('category/{slug}', function($slug){
+    return "halaman single category - ".$slug;
+   });
+Route::get('cart', function(){
+    return "halaman cart";
+   });
+Route::get('checkout', function(){
+    return "halaman checkout";
+   });   
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
