@@ -1,5 +1,5 @@
 <x-layout>
-<h3>Ini adalah halaman Homepage</h3>
+<!-- <h3>Ini adalah halaman Homepage</h3>
 <x-card></x-card>
 <x-alert></x-alert>
  <div class="row">
@@ -19,5 +19,5 @@ btn-primary">Detail</a>
  </div>
  </div>
  @endforeach
- </div>
+ </div> -->
 </x-layout>

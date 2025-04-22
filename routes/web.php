@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-use App\Http\Controllers\HomepageController; // Import at the top
+use App\Http\Controllers\HomepageController; 
 
 // Route::get('/home', function () {
 //     return view('welcome');
