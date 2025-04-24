@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-use App\Http\Controllers\HomepageController; 
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\ProductCategoryController;
 
-// Route::get('/home', function () {
-//     return view('welcome');
-// })->name('home');
+Route::get('/home', function () {
+    return view('welcome');
+})->name('home');
 
 // Route::get('/search', function () {
 //     return 'Hasil Pencarian';
@@ -122,9 +123,13 @@ use App\Http\Controllers\HomepageController;
 //     return "halaman checkout";
 //    });   
 
-// Route::view('dashboard', 'dashboard')
-//     ->middleware(['auth', 'verified'])
-//     ->name('dashboard');
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+    Route::group(['prefix' => 'dashboard'], function () {
+        Route::resource('categories', ProductCategoryController::class);
+    });
 
 Route::get('/', [HomepageController::class, 'index']);
 Route::get('products', [HomepageController::class, 'products']);
