@@ -1,4 +1,3 @@
-{{-- resources/views/dashboard/products/index.blade.php --}}
 <x-layouts.app :title="__('Products')">
     {{-- Header Halaman --}}
     <div class="relative mb-6 w-full">
@@ -69,7 +68,6 @@
     </div>
     @endif
 
-    {{-- Kontainer utama tabel dan modal delete --}}
     <div class="w-full overflow-x-auto shadow-md rounded-lg mt-6"
          x-data="{
              deleteModalOpen: false,
@@ -99,6 +97,7 @@
                     <th class="px-4 py-3 border-b-2 border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Image</th>
                     <th class="px-4 py-3 border-b-2 border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Name</th>
                     <th class="px-4 py-3 border-b-2 border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">SKU</th>
+                    <th class="px-4 py-3 border-b-2 border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Slug</th>
                     <th class="px-4 py-3 border-b-2 border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Category</th>
                     <th class="px-4 py-3 border-b-2 border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Price</th>
                     <th class="px-4 py-3 border-b-2 border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Stock</th>
@@ -129,6 +128,9 @@
                         </td>
                         <td class="px-4 py-3 border-b border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 bg-white dark:bg-gray-800">
                             <p class="text-gray-900 dark:text-gray-100 whitespace-no-wrap">{{ $product->sku }}</p>
+                        </td>
+                        <td class="px-4 py-3 border-b border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 bg-white dark:bg-gray-800">
+                            <p class="text-gray-900 dark:text-gray-100 whitespace-no-wrap">{{ $product->slug }}</p>
                         </td>
                         <td class="px-4 py-3 border-b border-r border-gray-200 dark:border-gray-600 dark:border-r-gray-600 bg-white dark:bg-gray-800">
                             <p class="text-gray-900 dark:text-gray-100 whitespace-no-wrap">{{ $product->category->name ?? 'Uncategorized' }}</p>
@@ -166,7 +168,7 @@
                     </tr>
                 @empty
                     <tr class="text-sm">
-                        <td colspan="9" class="px-4 py-10 border-b border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-center">
+                        <td colspan="10" class="px-4 py-10 border-b border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-center">
                             <p class="text-gray-500 dark:text-gray-400 whitespace-no-wrap">No products found.</p>
                         </td>
                     </tr>

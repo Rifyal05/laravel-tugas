@@ -62,7 +62,7 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
             'category_id' => 'nullable|exists:product_categories,id', 
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:8048',
         ]);
 
         if ($validator->fails()) {
@@ -93,11 +93,9 @@ class ProductController extends Controller
 
     /**
      * Display the specified resource.
-     * (Biasanya tidak digunakan untuk halaman admin, tapi bisa diimplementasikan jika perlu halaman detail)
      */
     public function show(Product $product)
     {
-        // Jika ingin halaman detail produk di dashboard
         $product->load('category');
         return view('dashboard.products.show', compact('product'));
         // return redirect()->route('products.edit', $product->id);

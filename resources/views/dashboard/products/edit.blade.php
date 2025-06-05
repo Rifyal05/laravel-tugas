@@ -1,4 +1,3 @@
-{{-- resources/views/dashboard/products/edit.blade.php --}}
 <x-layouts.app :title="__('Edit Product') . ' - ' . $product->name">
     <div class="relative mb-6 w-full">
         <flux:heading size="xl">Edit Product: {{ $product->name }}</flux:heading>
@@ -6,7 +5,6 @@
         <flux:separator variant="subtle" />
     </div>
 
-    {{-- Menampilkan pesan error validasi jika ada --}}
     @if ($errors->any())
         <div class="mb-4 p-3 rounded-md bg-red-50 dark:bg-red-800 dark:bg-opacity-30 border border-red-300 dark:border-red-600">
             <div class="font-medium text-red-700 dark:text-red-200 mb-1">
@@ -123,7 +121,6 @@
             @enderror
         </div>
 
-        {{-- Is Active Checkbox (menggunakan HTML standar) --}}
         <div class="flex items-center">
             <input type="checkbox"
                    id="is_active_edit"
