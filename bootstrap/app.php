@@ -41,3 +41,22 @@ Route::group(['prefix' => 'customer'], function () {
         Route::post('logout', 'logout')->name('customer.logout');
     });
 });
+
+
+return Application::configure(basePath: dirname(__DIR__))
+    ->withRouting(
+        web: __DIR__.'/../routes/web.php',
+        api: __DIR__.'/../routes/api.php',
+        commands: __DIR__.'/../routes/console.php',
+        health: '/up',
+    )
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->alias([
+            'check_customer_login' => App\Http\Middleware\CheckCustomerLogin::class,
+            'is_customer_login'    => App\Http\Middleware\IsCustomerLogin::class, // <-- Ditambahkan
+        ]);
+    })
+    ->withExceptions(function (Exceptions $exceptions) {
+        //
+    })
+    ->create();
